@@ -1,0 +1,36 @@
+name: Release aircheck-mcp
+
+# Publishes mcp/ to npm when a tag mcp-v<version> is pushed, with provenance, through npm trusted
+# publishing (GitHub OIDC): no npm token is stored in this repository. The tag must match
+# mcp/package.json's version.
+on:
+  push:
+    tags: ['mcp-v*']
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm test
+      - name: The tag matches the package version
+        run: test "mcp-v$(node -p "require('./mcp/package.json').version")" = "${GITHUB_REF_NAME}"
+      - name: Publish
+        working-directory: mcp
+        run: npm publish --provenance --access public
+      - name: The registry entry names the same version
+        run: test "$(node -p "require('./mcp/server.json').version")" = "$(node -p "require('./mcp/package.json').version")"
+      - name: Publish to the official MCP Registry (GitHub OIDC, io.github.the-compound-labs namespace)
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher login github-oidc
+          cd mcp && ../mcp-publisher publish
