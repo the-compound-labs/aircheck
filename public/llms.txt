@@ -1,0 +1,39 @@
+# Aircheck
+
+> Aircheck shows every post your agents queued for today with its media. You can fix any post before it goes out.
+
+Aircheck reads the posts that your Claude Code, Codex, cron, Airflow and launchd jobs queued for the day and the ad creative that your ad pipeline builds. It shows each item with all of its media and whether it is ready to go out.
+
+- Aircheck keeps your media on your machine. Your account stores only the small JSON file that describes each post.
+
+- Aircheck provides three ways to work on a post. Each action runs the post's own pipeline again with a headless agent and shows the result beside the original.
+
+- Example: Aircheck runs the post's pipeline again and shows a fresh version. It changes nothing.
+
+- Feedback: Write what should change. Aircheck shows the revised version beside the original and changes nothing.
+
+- Repair: Aircheck rebuilds the post through its pipeline. When you approve the new version, it replaces the queued post. Undo restores the old one.
+
+- Each job writes one JSON file per post into a queue folder. The MCP server writes those files, and your agent reports what it queued.
+
+- Cron, Airflow, launchd, or an agent loop can write the file. After a send, the job rewrites the status and adds the post URL.
+
+- Aircheck starts headless Codex or Claude as a local process. The agent can read your pipelines but writes only in its own run folder, and it has no network.
+
+- Social and Ads use the same screen. The screen shows the same day and media and provides Example, Feedback and Repair. Only the work changes.
+
+- Does Aircheck post for me? No. Your jobs post. Aircheck shows what they queued and can replace a queued post only when you approve a repair.
+
+- Which platforms? Any platform your jobs post to. Aircheck reads the queue folder and does not connect to the platforms.
+
+- Aircheck is open source. The MCP server, npm package aircheck-mcp, setup skill and manifest and config schemas use MIT. The web app uses AGPL-3.0. aircheck.dev is the optional hosted account and stores manifests only.
+
+- Source code: https://github.com/the-compound-labs/aircheck
+
+## Pages
+
+- [Docs](https://aircheck.dev/docs): Read the full format in the docs.
+- [Self-host](https://aircheck.dev/docs/self-host): Aircheck has three free deployment options. Choose where the day should appear.
+- [About](https://aircheck.dev/about): Who makes Aircheck and why it exists.
+
+Aircheck is made by Compound Labs, an independent product R&D lab.

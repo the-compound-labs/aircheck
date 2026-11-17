@@ -1,0 +1,83 @@
+/* /docs and the guide: the reading column (reader.css) beside a grouped sidebar, with dark code
+ * blocks and quiet field tables. 2026-11-15 redesign, view/ac-6. */
+.dc{max-width:1240px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;align-items:start}
+.dc-main{margin:0;padding:52px 0 8px;max-width:780px}
+.dc-main>p:first-child{font-size:17.5px;color:var(--ink)}
+
+/* the sidebar */
+.dn{position:sticky;top:0;padding:52px 0 32px;max-height:100vh;overflow:auto;display:flex;flex-direction:column;gap:22px;scrollbar-width:thin}
+.dn-g{display:flex;flex-direction:column;gap:1px}
+.dn-l{font:600 11.5px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:#62626d;padding:0 0 9px}
+.dn a{font-size:14.5px;line-height:1.35;color:var(--mute);text-decoration:none;padding:6px 0;transition:color .15s}
+.dn a:hover{color:var(--ink)}
+.dn a[aria-current]{color:var(--ink);font-weight:600}
+.dn-m{display:none}
+
+/* headings and lists */
+.dc-main h2{scroll-margin-top:28px}
+.dc-main h3{scroll-margin-top:28px}
+.ways{padding-left:22px;margin-bottom:18px}
+.ways li::marker{color:var(--ink);font-weight:600}
+
+/* code */
+figure.code{margin:0 0 22px;border-radius:14px;background:#111116;overflow:hidden;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 10px 30px -18px rgba(10,10,20,.5)}
+figure.code .cap{font:500 12.5px var(--mono);color:#a3a3ad;padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+figure.code pre{font:400 13.5px/1.7 var(--mono);padding:16px 18px;overflow-x:auto;color:#e9e8ee;tab-size:2}
+figure.code pre .k{color:#ff8a8f}
+figure.code pre .s{color:#e9e8ee}
+figure.code pre .c{color:#8e8e98}
+
+/* tables */
+.tw{overflow-x:auto;margin:0 0 22px;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55}
+th{text-align:left;font-weight:600;color:var(--ink);background:var(--side);padding:11px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:11px 16px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{white-space:nowrap;color:var(--ink)}
+td code,th code{font-size:.86em}
+
+/* the right rail and the client tabs (review 2026-11-16, item 43) */
+.dc-aside{display:flex;flex-direction:column;gap:22px;position:sticky;top:0;padding:52px 0 32px}
+.dc-copy{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;min-height:36px;padding:6px 14px;text-align:left;line-height:1.3;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 13.5px var(--sans);color:var(--ink);cursor:pointer;transition:background-color .15s,border-color .15s}
+.dc-copy:hover{background:var(--side);border-color:#d6d5da}
+.dc-toc{display:flex;flex-direction:column;gap:2px}
+.dc-toc a{font-size:13.5px;line-height:1.35;color:var(--mute);text-decoration:none;padding:5px 0 5px 12px;border-left:1.5px solid var(--line)}
+.dc-toc a.l3{padding-left:22px}
+.dc-toc a:hover{color:var(--ink)}
+.dc-toc a[aria-current]{color:var(--ink);border-left-color:var(--ink);font-weight:500}
+.dc-tabs{margin:0 0 22px}
+.dc-tabs-h{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.dc-tabs-h button{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 13px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 13.5px var(--sans);color:var(--mute);cursor:pointer}
+.dc-tabs-h button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.dc-tabs-h button.on img{background:#fff;border-radius:4px;padding:1px}
+.dc-tabs figure.code{margin:0}
+@media (min-width:1280px){.dc{max-width:1400px;grid-template-columns:220px minmax(0,1fr) 220px;gap:48px}}
+@media (max-width:1279px){
+  .dc{grid-template-columns:220px minmax(0,1fr);grid-template-rows:auto 1fr}
+  .dn{grid-row:1/span 2}
+  .dc-aside{grid-column:2;grid-row:1;position:static;padding:40px 0 0}
+  .dc-main{grid-column:2;grid-row:2;padding-top:24px}
+  .dc-toc{display:none}
+}
+
+/* a phone: the sidebar folds into one sticky menu above the text */
+@media (max-width:900px){
+  .dc{display:flex;flex-direction:column;padding:0}
+  .dc-aside{order:1;padding:20px 18px 0}
+  .dc-main{order:2}
+  .dn{display:none}
+  .dc-main{padding:28px 18px 8px;max-width:none}
+  .dn-m{display:block;position:sticky;top:0;z-index:4;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .dn-m summary{list-style:none;display:flex;align-items:center;gap:10px;min-height:52px;padding:0 18px;cursor:pointer;font-size:14.5px}
+  .dn-m summary::-webkit-details-marker{display:none}
+  .dn-m summary span{color:var(--mute)}
+  .dn-m summary b{font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .dn-m summary i{margin-left:auto;width:9px;height:9px;border-right:1.6px solid var(--ink2);border-bottom:1.6px solid var(--ink2);transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+  .dn-m[open] summary i{transform:rotate(-135deg) translateY(-1px)}
+  .dn-mb{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;padding:6px 18px 18px;max-height:65vh;overflow:auto}
+  .dn-mb .dn-g{display:flex;flex-direction:column}
+  .dn-mb a{font-size:14.5px;color:var(--ink2);text-decoration:none;padding:8px 0;min-height:40px}
+  .dn-mb a[aria-current]{color:var(--ink);font-weight:600}
+  td:first-child{white-space:normal}
+}
+.dc .dc-main{margin:0;min-width:0;width:100%}

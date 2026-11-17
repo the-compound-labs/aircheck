@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aircheck.dev/schema/config.schema.json",
+  "title": "aircheck.config.json",
+  "description": "Where lanes, products, the queue and ad creatives come from on this machine, which folders hold media, and how to start a headless agent. Found at AIRCHECK_CONFIG, else ./aircheck.config.json, ~/.aircheck/, ~/.config/aircheck/ or ~/. Paths may start with ~.",
+  "type": "object",
+  "properties": {
+    "dataDir": {
+      "type": "string",
+      "default": "~/.aircheck"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA zone that decides which day a post belongs to.",
+      "examples": [
+        "America/New_York"
+      ]
+    },
+    "lanes": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "source",
+            "items"
+          ],
+          "properties": {
+            "source": {
+              "const": "static"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "platform"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "Matches `lane` in a manifest."
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "platform": {
+                    "type": "string",
+                    "enum": [
+                      "x",
+                      "linkedin",
+                      "bluesky",
+                      "threads",
+                      "instagram",
+                      "facebook",
+                      "youtube",
+                      "tiktok",
+                      "peerlist",
+                      "reddit",
+                      "hackernews",
+                      "substack",
+                      "pinterest",
+                      "google",
+                      "microsoft",
+                      "email",
+                      "other"
+                    ]
+                  },
+                  "handle": {
+                    "type": "string"
+                  },
+                  "brief": {
+                    "type": "string",
+                    "description": "What this lane posts, in a sentence."
+                  },
+                  "formats": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "label"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "note": {
+                              "type": "string"
+                            },
+                            "module": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "references": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Paths the agent reads first to learn how this lane builds a post."
+                  },
+                  "logo": {
+                    "type": "string",
+                    "description": "The lane's own logo: an absolute path inside mediaRoots, or an https URL. Drawn in place of the platform icon."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "products": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "source",
+            "items"
+          ],
+          "properties": {
+            "source": {
+              "const": "static"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "repository": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "queue": {
+      "type": "array",
+      "description": "Sources read for a day. queue_post writes to the first folder source, else <dataDir>/queue.",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "source",
+              "dir"
+            ],
+            "properties": {
+              "source": {
+                "const": "folder"
+              },
+              "dir": {
+                "type": "string",
+                "description": "Holds <YYYY-MM-DD>/*.json."
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "source"
+            ],
+            "properties": {
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "ads": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "source",
+              "dir"
+            ],
+            "properties": {
+              "source": {
+                "const": "ad-folder"
+              },
+              "dir": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "source",
+              "dir"
+            ],
+            "properties": {
+              "source": {
+                "const": "ad-catalog"
+              },
+              "dir": {
+                "type": "string",
+                "description": "Holds <product>/<run>/catalog.json."
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "source"
+            ],
+            "properties": {
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "mediaRoots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The only folders the media bridge serves files from."
+    },
+    "agents": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "timeoutMinutes": {
+          "type": "number",
+          "default": 20
+        },
+        "workspace": {
+          "type": "string"
+        },
+        "adWorkspace": {
+          "type": "string"
+        },
+        "commands": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": "Argv per agent. {prompt} and {workspace} are filled in."
+        }
+      }
+    }
+  }
+}

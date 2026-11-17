@@ -1,0 +1,14 @@
+name: Proposal
+description: A new source, scheduler adapter or change to the manifest.
+labels: [proposal]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose

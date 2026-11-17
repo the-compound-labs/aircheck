@@ -1,0 +1,7 @@
+/* /privacy, /terms, /contact and /about: the reading column from reader.css, nothing more. The
+ * page shape is the 2026-11-15 redesign's reader page: dusk band, white body. */
+.rd-main .about-section{margin-top:8px}
+/* the ads-measurement section on /privacy brings its own heading face (components/ads-choice.css);
+ * the reader page's serif wins here so the page reads as one. */
+.rd-main .ads-section h2{font:400 30px/1.15 var(--serif);letter-spacing:-.015em;margin:48px 0 14px}
+@media (max-width:700px){.rd-main .ads-section h2{font-size:25px}}

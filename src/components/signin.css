@@ -1,0 +1,31 @@
+/* SIGNING IN, as a dialog over the page you were on. Self-contained, so it draws the same over
+ * the landing (which loads none of app.css) and over the app. */
+.si-back{position:fixed;inset:0;z-index:60;background:rgba(12,12,16,.55);-webkit-backdrop-filter:blur(6px) saturate(1.1);backdrop-filter:blur(6px) saturate(1.1);display:grid;place-items:center;padding:16px;overflow:auto;animation:si-in .14s ease-out}
+@keyframes si-in{from{opacity:0}}
+@keyframes si-up{from{opacity:0;transform:translateY(8px) scale(.98)}}
+@media (prefers-reduced-motion:reduce){.si-back,.si{animation:none}}
+.si{--si-ink:#18181b;--si-ink2:#3f3f46;--si-mute:#71717a;--si-line:#e4e4e7;--si-acc:#141417;--si-sel:#efeef2;position:relative;width:100%;max-width:400px;background:#fff;border:1px solid var(--si-line);border-radius:18px;padding:28px;animation:si-up .22s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;gap:12px;box-shadow:0 24px 60px rgba(24,24,27,.22);font:400 14px/1.5 Inter,system-ui,sans-serif;color:var(--si-ink);text-align:left}
+.si h1{font:300 30px/1.1 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:0}
+.si .sub{color:var(--si-ink2);font-size:13.5px;margin:-4px 0 4px}
+.si .fine{color:var(--si-mute);font-size:12px;margin:0}
+.si label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;font-weight:500;color:var(--si-ink2)}
+.si input{border:1px solid var(--si-line);border-radius:9px;padding:9px 11px;font:inherit;font-size:14px;color:var(--si-ink);background:#fff;width:100%}
+.si input:focus{outline:none;border-color:var(--si-acc);box-shadow:0 0 0 3px var(--si-sel)}
+.si .err{color:#9a5b13;font-size:12.5px;margin:0}
+.si .si-btn{display:flex;align-items:center;justify-content:center;gap:8px;height:40px;border-radius:10px;font:600 14px Inter,system-ui,sans-serif;text-decoration:none;cursor:pointer;width:100%}
+.si .si-google{background:#fff;color:var(--si-ink);border:1px solid var(--si-line)}
+.si .si-google:hover{border-color:var(--si-ink2)}
+.si .si-google i{font-size:17px}
+.si .si-pri{background:var(--si-acc);border:1px solid var(--si-acc);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 6px 14px -8px rgba(17,17,20,.45)}
+.si :focus-visible{outline:2px solid var(--si-ink);outline-offset:2px}
+.si .si-pri:hover{filter:brightness(.95)}
+.si .si-pri:disabled{opacity:.55;cursor:default}
+.si .or{display:flex;align-items:center;gap:10px;color:var(--si-mute);font-size:12px}
+.si .or::before,.si .or::after{content:"";flex:1;height:1px;background:var(--si-line)}
+.si .alt{background:none;border:0;font:inherit;font-size:12.5px;color:var(--si-mute);text-decoration:underline;cursor:pointer;padding:0;align-self:flex-start}
+.si .alt:hover{color:var(--si-ink)}
+.si .si-x{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--si-mute);background:none;border:0;cursor:pointer;font-size:16px}
+.si .si-x:hover{background:#f4f4f5;color:var(--si-ink)}
+.si .alts{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.si .sent{margin:0;display:flex;gap:9px;align-items:flex-start;background:#f6f6f8;border:1px solid var(--si-line);border-radius:10px;padding:11px 12px;font-size:13.5px;color:var(--si-ink2)}
+.si .sent i{color:#137a3a;font-size:17px;margin-top:1px}

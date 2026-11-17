@@ -1,0 +1,730 @@
+/* App-only rules: what the reviewed riff (aircheck.css) did not draw. Same grammar and tokens. */
+a{color:inherit}
+a.btn{text-decoration:none}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:disabled:hover{background:#fff}
+.btn.pri:disabled:hover{background:var(--ink)}
+.search input{border:0;outline:0;background:none;font:inherit;font-size:13px;color:var(--ink);min-width:0;flex:1}
+.search input::placeholder{color:var(--faint)}
+.search:focus-within{border-color:var(--ink);box-shadow:0 0 0 3px rgba(24,24,27,.06)}
+a.ln{text-decoration:none}
+.ln.on{background:#fff;box-shadow:0 0 0 1px var(--line);color:var(--ink);font-weight:500}
+.ln .lnn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ln .lnn.two{display:flex;gap:.3em}
+.ln .lnm{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.ln .lnp{flex:none;color:var(--mute);font-weight:400}
+.brand img{border-radius:6px}
+.err4{margin:0 18px 12px;font-size:12.5px;color:#b91c1c;background:#fef2f2;border-radius:8px;padding:8px 10px}
+.hist4{margin:0 18px 18px;display:flex;flex-direction:column}
+.hist4 h6{margin:0 0 4px;font-size:12px;font-weight:500;color:var(--mute)}
+.hist4 button{display:flex;gap:8px;align-items:center;padding:6px 4px;border-top:1px solid var(--line);font-size:12.5px;text-align:left}
+.hist4 button:hover{background:var(--hover)}
+.hist4 button i{color:var(--mute)}
+.hist4 button small{color:var(--mute);font-size:11.5px}
+.hist4 button small:first-of-type{margin-left:auto}
+.hist4 .s-done{color:var(--sent)}.hist4 .s-failed{color:#b91c1c}.hist4 .s-running{color:var(--acc)}
+#r4 .tile .im video{pointer-events:none}
+#r4 .hrs span{white-space:nowrap}
+#r4 .hrs span:first-child{transform:none}
+#r4 .hrs span:last-child{transform:translateX(-100%)}
+.cmp video{flex:0 0 100%;width:100%;height:100%;object-fit:contain}
+
+/* Lanes and Previews pages: the same frame, a sidebar and one scrolling pane */
+.pg{display:grid;grid-template-columns:220px minmax(0,1fr);height:100vh}
+.pg .page{overflow:auto;min-width:0;padding-bottom:60px}
+.pg .lede{padding:16px 18px 14px;border-bottom:1px solid var(--line)}
+.pg .lede p{margin:0;color:var(--ink2)}
+.pg .lede p b{color:var(--ink);font-weight:600}
+.lanes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:18px}
+.lanecard{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;text-decoration:none;transition:border-color .15s,box-shadow .15s}
+.lanecard:hover{border-color:#d4d4d8;box-shadow:0 8px 24px -12px rgba(24,24,27,.18)}
+.lanecard .lh{display:flex;gap:10px;align-items:center;min-width:0}
+.lanecard .lh .w{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.lanecard .lh .w b{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lanecard .lh .w small{color:var(--mute);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fmts{display:flex;gap:5px;flex-wrap:wrap}
+.fmts span{font-size:11.5px;background:var(--side);border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--ink2)}
+.lanecard .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.lanecard .lf{margin-top:auto;display:flex;gap:10px;font-size:12px;color:var(--mute);align-items:center}
+.lanecard .lf .go{margin-left:auto;color:var(--acc);font-weight:500;display:flex;gap:4px;align-items:center}
+
+/* the preview studio (lane page and Previews) */
+.studio{display:grid;grid-template-columns:300px minmax(0,1fr);gap:18px;align-items:start;padding:18px}
+.studio .form{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px;position:sticky;top:0}
+.studio .form h2{margin:0;font-size:14px;font-weight:600;display:flex;gap:7px;align-items:center}
+.studio .form h2 i{color:var(--acc)}
+.studio .form label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;font-weight:500;color:var(--ink2)}
+.studio select,.studio textarea{border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:#fff;font:inherit;font-size:13px;font-weight:400;resize:vertical;width:100%;color:var(--ink)}
+.studio select:focus,.studio textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(24,24,27,.06)}
+.studio .hint{margin:-4px 0 0;font-size:12px;color:var(--mute)}
+.studio .err{margin:0;font-size:12.5px;color:#b91c1c;background:#fef2f2;border-radius:8px;padding:7px 10px}
+.studio .form .btn.pri{justify-content:center;height:32px}
+.runs{display:flex;flex-direction:column;gap:12px;min-width:0}
+.run{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px;max-width:640px}
+.run.r-running{border-color:#c4b5fd}
+.rh{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
+.rh b{font-weight:600}
+.rh .muted,.muted{color:var(--mute);font-size:12.5px}
+.rh .st{margin-left:auto}
+.st{font-size:11.5px;font-weight:500;border-radius:99px;padding:1px 8px;display:inline-flex;gap:6px;align-items:center;text-transform:capitalize}
+.s-done{background:#dcfce7;color:#166534}.s-failed{background:#fee2e2;color:#b91c1c}.s-cancelled{background:#fef3c7;color:#92400e}
+.s-running{background:var(--sel);color:var(--acc);text-transform:none;font-variant-numeric:tabular-nums}
+.spin{width:9px;height:9px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:sp4 .8s linear infinite}
+.ask{margin:0;font-size:12.5px;color:var(--ink2);display:flex;gap:6px;align-items:flex-start}
+.ask i{color:var(--mute);margin-top:2px}
+.working{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.working .hint{margin:0;font-size:12px;color:var(--mute)}
+.shimmer{width:100%;height:160px;border-radius:10px;background:linear-gradient(100deg,var(--side) 30%,#efeef5 50%,var(--side) 70%);background-size:300% 100%;animation:shim4 1.6s ease-in-out infinite}
+@keyframes shim4{from{background-position:100% 0}to{background-position:0 0}}
+.sofar{display:flex;gap:8px;overflow-x:auto;width:100%}
+.sofar img{height:160px;border-radius:8px;border:1px solid var(--line);flex:none}
+.log{margin:0;width:100%;font:11.5px/1.5 ui-monospace,Menlo,monospace;color:var(--ink2);background:var(--side);border-radius:8px;padding:8px 10px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:120px;overflow:auto}
+.log.full{max-height:360px}
+.notes{margin:0;font-size:12.5px;color:var(--acc);background:var(--sel);border-radius:8px;padding:7px 10px;display:flex;gap:6px;align-items:flex-start}
+.revise{display:flex;gap:8px;align-items:flex-end}
+.revise textarea{flex:1}
+.rf{display:flex;gap:10px;font-size:12px;color:var(--mute);align-items:center;flex-wrap:wrap}
+.lnk{color:var(--acc);font-size:12px;margin-left:auto}
+.empty{border:1px dashed var(--line);border-radius:12px;padding:32px;text-align:center;color:var(--mute)}
+.empty i{font-size:24px}
+.err{margin:0;font-size:12.5px;color:#b91c1c;background:#fef2f2;border-radius:8px;padding:7px 10px}
+/* a post as its audience sees it (PostView) */
+.post{display:flex;flex-direction:column;gap:10px;min-width:0}
+.post .phd{display:flex;gap:9px;align-items:center}
+.post .pa{width:28px;height:28px;border-radius:50%;background:var(--ring);display:grid;place-items:center;color:#fff;font-weight:600;font-size:12px;flex:none}
+.post .who{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.post .who b{font-weight:600;font-size:13px}
+.post .who small{color:var(--mute);font-size:12px}
+.post .pl{margin-left:auto;font-size:17px;color:var(--ink2)}
+.post .copy{margin:0;white-space:pre-wrap;font-size:13.5px;color:var(--ink2);overflow-wrap:anywhere}
+.post .copy.th{border-left:2px solid var(--line);padding-left:10px}
+.mstrip{position:relative;border-radius:10px;overflow:hidden;background:#0b0b0d}
+.mtrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.mtrack::-webkit-scrollbar{display:none}
+.mtrack>*{flex:0 0 100%;scroll-snap-align:start;display:block;width:100%;max-height:520px;object-fit:contain;user-select:none}
+.mcount{position:absolute;top:10px;right:10px;font-size:11.5px;font-weight:600;color:#fff;background:rgba(0,0,0,.55);border-radius:99px;padding:2px 8px;pointer-events:none}
+.marr{position:absolute;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.25);opacity:0;transition:opacity .15s;font-size:12px}
+.marr.prev{left:10px}.marr.next{right:10px}
+.mstrip:hover .marr:not(:disabled){opacity:1}
+.marr:disabled{display:none}
+.mnav2{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:4px}
+.mnav2 button{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45)}
+.mnav2 button.on{background:#fff}
+.doc{display:flex;gap:7px;align-items:center;font-size:12.5px;border:1px solid var(--line);border-radius:8px;padding:7px 10px;text-decoration:none}
+.nf{min-height:100vh;display:grid;place-content:center;gap:12px;justify-items:center}
+
+/* phone and narrow windows: one column, the page scrolls, the details pane follows the list */
+@media (max-width:1100px){
+  #r4{grid-template-columns:200px minmax(0,1fr) 340px}
+  .studio{grid-template-columns:minmax(0,1fr)}
+  .studio .form{position:static}
+}
+@media (max-width:860px){
+  body{overflow:auto}
+  #r4,.pg{display:block;height:auto}
+  #r4 .side,.pg .side{display:none}
+  #r4 .mid{min-height:0}
+  #r4 .body{overflow:visible}
+  #r4 .insp{border-left:0;border-top:1px solid var(--line);overflow:visible}
+  .bar{position:sticky;top:0;background:#fff;z-index:5;flex-wrap:wrap;height:auto;min-height:44px;padding:8px 16px;gap:8px}
+  .bar .r{flex-wrap:wrap;margin-left:0}
+  .bar .r>.btn:not(.pri){display:none}
+  #r4 .top4,#r4 .body.sheet{padding-left:16px;padding-right:16px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .it{padding:9px 16px}.it .t2{max-width:none}
+  .pg .page{overflow:visible}
+}
+
+/* Wordmark. The violet-to-orange sweep came from the old mark; the mark is red now, so the
+ * wordmark is red, with the same top sheen holding the dimension. */
+.wn{background-image:radial-gradient(120% 60% at 50% -8%,rgba(255,255,255,.5),rgba(255,255,255,0) 60%),linear-gradient(135deg,#c20f1d 0%,#e11d2a 45%,#ff4733 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em;margin-bottom:-.08em}
+
+/* A product has no platform ring, so its chip is the two letters of its name. */
+.rg .all.pr,.ih .all.pr{display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:9px;font-weight:600;font-size:12px;text-transform:uppercase;width:34px;height:34px}
+.ih .all.pr{width:30px;height:30px;flex:none}
+
+/* THE SHIPPED BRAND. aircheck.css is the reviewed riff verbatim and says to put app-only rules
+ * here, so the accent the product actually ships under is set here rather than edited into it.
+ * The riff was drawn in violet; the landing approved on 2026-11-06 (and the mark, and the share
+ * card) is white and red, so the app follows the brand it ships under instead of staying violet. */
+:root{--acc:#e11d2a;--sel:#fef2f2}
+/* The wordmark is Unbounded everywhere the brand appears, the same face the landing sets. */
+.brand .wn{font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.01em}
+
+/* SIGNING IN, AND THE ACCOUNT. Both are read at arm's length rather than inside the studio
+ * chrome, so they use the page ground and the landing's card, not the sidebar frame. */
+.signin{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--side)}
+.signin .card{width:100%;max-width:380px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.card h1{font:600 24px/1.2 Unbounded,Inter,system-ui,sans-serif;letter-spacing:-.02em;margin:0}
+.card h2{font:600 15px Inter,system-ui,sans-serif;margin:0}
+.card .sub{color:var(--ink2);font-size:13.5px;margin:-4px 0 4px}
+.card .fine{color:var(--mute);font-size:12px;margin:0}
+.card label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;font-weight:500;color:var(--ink2)}
+.card input{border:1px solid var(--line);border-radius:9px;padding:9px 11px;font:inherit;font-size:14px;font-weight:400;color:var(--ink);background:#fff;width:100%}
+.card input:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px var(--sel)}
+.card .err{color:#b91c1c;font-size:12.5px;margin:0}
+.card .btn.google{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-weight:600;font-size:14px;text-decoration:none}
+.card .btn.google:hover{border-color:var(--ink2)}
+.card .btn.google i{font-size:17px}
+.card .or{display:flex;align-items:center;gap:10px;color:var(--mute);font-size:12px}
+.card .or::before,.card .or::after{content:"";flex:1;height:1px;background:var(--line)}
+.card .alt{background:none;border:0;font:inherit;font-size:12.5px;color:var(--mute);text-decoration:underline;cursor:pointer;padding:0;align-self:flex-start}
+.card .alt:hover{color:var(--ink)}
+.card .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.card .row input{flex:1;min-width:200px}
+.acct{max-width:720px;margin:0 auto;padding:40px 24px;display:flex;flex-direction:column;gap:18px}
+.acct .fresh{border:1px solid var(--acc);background:var(--sel);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.acct .fresh b{font-size:12.5px;color:#b91c1c}
+.acct pre{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;overflow-x:auto;font:500 11.5px/1.5 "JetBrains Mono",monospace;margin:0}
+.toks{width:100%;border-collapse:collapse;font-size:12.5px}
+.toks th{text-align:left;font-weight:500;color:var(--mute);font-size:11.5px;padding:0 0 6px}
+.toks td{border-top:1px solid var(--line);padding:7px 0}
+.toks td:last-child{text-align:right}
+/* Lane logos: tile, name on one line, then the field and its Save, all on one centre line. */
+.toks.logos td{vertical-align:middle;padding:8px 0}
+.toks.logos td:first-child{width:22px;padding-right:10px}
+.toks.logos td:nth-child(2){white-space:nowrap;padding-right:16px;font-size:13px;color:var(--ink)}
+.toks.logos input{padding:7px 10px;font-size:13px}
+.toks.logos td:last-child{padding-left:8px}
+
+/* The sidebar is a flex column with a 12px gap between its blocks, which also pushed every lane
+ * row 12px apart. The lanes are one block, so they sit in their own list and keep that gap off. */
+/* The list scrolls, so its edge is a clip boundary: a selected row's rounded corners and its
+ * shadow were being cut off against it. The rows sit inside a little padding instead. */
+.lns{display:flex;flex-direction:column;gap:1px;min-height:0;overflow-y:auto;overflow-x:hidden;padding:3px;margin:-3px}
+/* A selected tile draws a ring outside itself, which the sticky hour header was clipping. The
+ * header still wins — it is sticky, that is its job — so the tile lifts above its SIBLINGS only,
+ * and the sheet gives the first row enough room that the ring is never under the header at rest. */
+.tile.sel{position:relative;z-index:1}
+.hr{z-index:5}
+.tiles{padding-top:10px}
+
+/* THE SELECT WE DRAW. The native control paints its menu from the operating system, so a Mac
+ * dropdown appeared in the middle of a page that is otherwise ours. This is the same control in
+ * the product's own type, colour and radius. */
+.sel{position:relative;width:100%}
+.selb{display:flex;align-items:center;gap:8px;width:100%;border:1px solid var(--line);border-radius:8px;
+  padding:7px 9px;background:#fff;font:inherit;font-size:13px;font-weight:400;color:var(--ink);text-align:left;cursor:pointer}
+.selb:hover{border-color:#d4d4d8}
+.selb:focus-visible{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(24,24,27,.06)}
+.sel.open .selb{border-color:var(--ink);box-shadow:0 0 0 3px rgba(24,24,27,.06)}
+.selv{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.selb i{color:var(--mute);font-size:14px;flex:none;transition:transform .15s}
+.sel.open .selb i{transform:rotate(180deg)}
+.selm{position:absolute;z-index:40;top:calc(100% + 5px);left:0;right:0;max-height:260px;overflow:auto;
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px;
+  box-shadow:0 10px 30px rgba(0,0,0,.10),0 2px 6px rgba(0,0,0,.05)}
+.selo{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:7px;font-size:13px;cursor:pointer;color:var(--ink2)}
+.selo>span{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.selo small{color:var(--mute);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.selo.on{background:var(--sel);color:var(--ink)}
+.selo.is{font-weight:500;color:var(--ink)}
+.selo i{color:var(--acc);font-size:13px;flex:none}
+
+/* The lanes header carries the way through to all of them, so the nav does not repeat the word. */
+.sect{display:flex;align-items:baseline;gap:8px}
+.sect a{margin-left:auto;color:var(--mute);text-decoration:none;font-size:11.5px;display:flex;gap:5px;align-items:baseline}
+.sect a:hover,.sect a.on{color:var(--acc)}
+.sect a .c{color:var(--faint)}
+
+/* Social or Ads: the scope swapper above the nav. The three places below it are the same in each. */
+.swap{display:flex;gap:3px;background:var(--hover);border-radius:9px;padding:3px}
+.swap a{flex:1;display:flex;gap:6px;align-items:center;justify-content:center;padding:6px 8px;border-radius:7px;
+  font-size:12.5px;font-weight:500;color:var(--mute);text-decoration:none}
+.swap a i{font-size:14px}
+.swap a:hover{color:var(--ink)}
+.swap a.on{background:#fff;color:var(--acc);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.swap a.on i{color:var(--acc)}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PLUSH. The layout was right but every element was flat,
+   and the hard 1px rules fought it. So: selected things are cushions with the
+   light on top and a red shadow beneath, tracks press in, and every divider is
+   a soft seam — a hairline of light with a short fade under it — instead of a
+   drawn line. Nothing here moves anything; it is all fill, light and shadow on
+   states that already existed.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root{--plush:linear-gradient(180deg,#ef3b47,#c90f1c);
+      --plush-in:0 1px 0 rgba(255,255,255,.5) inset,0 -2px 4px rgba(120,0,10,.28) inset;
+      --plush-out:0 3px 8px -2px rgba(193,15,29,.42),0 10px 22px -10px rgba(193,15,29,.5);
+      --seam:0 1px 0 rgba(255,255,255,.9),0 4px 10px -8px rgba(20,18,22,.35)}
+
+/* the tracks press in; what is chosen sits in them as a cushion */
+.swap{background:linear-gradient(180deg,#eceef1,#f4f5f7);box-shadow:0 1px 3px rgba(0,0,0,.07) inset}
+.swap a.on{color:#fff;background:var(--plush);box-shadow:var(--plush-in),0 3px 7px -1px rgba(193,15,29,.45)}
+.swap a.on i{color:#fff}
+.seg{background:linear-gradient(180deg,#eceef1,#f4f5f7);box-shadow:0 1px 3px rgba(0,0,0,.07) inset;border-radius:9px;padding:3px;border:0}
+.seg button{border:0;background:none;border-radius:7px;color:var(--mute)}
+.seg button.on{color:#fff;background:var(--plush);box-shadow:var(--plush-in),0 2px 6px -1px rgba(193,15,29,.4)}
+.search{background:linear-gradient(180deg,#eceef1,#f4f5f7);border:0;box-shadow:0 1px 3px rgba(0,0,0,.07) inset}
+.search:focus-within{box-shadow:0 1px 3px rgba(0,0,0,.07) inset,0 0 0 2px rgba(225,29,42,.25)}
+
+/* the current place is a soft bed, so the sidebar has one focal point and not two */
+.nav a.on{color:var(--acc);background:linear-gradient(180deg,#fff0f1,#ffe3e5);
+  box-shadow:0 1px 0 #fff inset,0 0 0 1px rgba(225,29,42,.18),0 5px 12px -6px rgba(193,15,29,.4)}
+.nav a.on i{color:var(--acc)}
+.nav a.on .c{color:rgba(193,15,29,.65)}
+.ln.on{background:linear-gradient(180deg,#fff0f1,#ffe3e5);color:var(--acc);
+  box-shadow:0 1px 0 #fff inset,0 0 0 1px rgba(225,29,42,.18),0 4px 10px -6px rgba(193,15,29,.4)}
+.ln{transition:background .12s,box-shadow .12s}
+.ln:hover{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.ln .pi{box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 -1px 2px rgba(0,0,0,.18) inset,0 2px 5px -1px rgba(0,0,0,.22)}
+.lns{gap:2px}
+
+/* things you press */
+.btn.pri{border-color:transparent;background:var(--plush);box-shadow:var(--plush-in),var(--plush-out)}
+.btn.pri:hover{background:linear-gradient(180deg,#f2505b,#d5121f)}
+.btn:not(.pri){background:linear-gradient(180deg,#fff,#f6f6f8);border-color:#e4e4e8;box-shadow:0 1px 0 #fff inset,0 1px 2px rgba(0,0,0,.05)}
+.btn:not(.pri):hover{box-shadow:0 1px 0 #fff inset,0 2px 5px rgba(0,0,0,.08)}
+.act4 button{background:linear-gradient(180deg,#fff,#f6f6f8);border:1px solid #e4e4e8;border-radius:11px;
+  box-shadow:0 1px 0 #fff inset,0 1px 2px rgba(0,0,0,.05),0 4px 10px -6px rgba(0,0,0,.3);transition:transform .1s,box-shadow .12s}
+.act4 button:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 1px 0 #fff inset,0 2px 4px rgba(0,0,0,.07),0 8px 16px -8px rgba(0,0,0,.35)}
+.act4 button:active:not(:disabled){transform:translateY(0);box-shadow:0 1px 3px rgba(0,0,0,.12) inset}
+.act4 button:disabled{opacity:.45;box-shadow:none;background:#f6f6f8}
+.act4 button.on{color:#fff;background:var(--plush);border-color:transparent;box-shadow:var(--plush-in),0 3px 8px -2px rgba(193,15,29,.4)}
+.act4 button.on i{color:#fff}
+
+/* the ring carries the platform's own colour, not a borrowed gradient */
+.av{background:var(--line);padding:2px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 4px 10px -6px rgba(0,0,0,.25)}
+.av span{border-color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -1px 2px rgba(0,0,0,.18) inset}
+.av.done{background:#d4d4d8}
+#r4 .rg.on .av{background:var(--plush);padding:2.5px}
+#r4 .rg.on small{color:var(--acc);font-weight:600}
+.rg .all{background:var(--plush) !important;border-color:transparent !important;color:#fff;
+  box-shadow:var(--plush-in),0 4px 10px -3px rgba(193,15,29,.45)}
+
+/* media sits in a recess */
+.tile .im{background:linear-gradient(165deg,#f0f1f4,#e6e8ec);
+  box-shadow:0 0 0 1px rgba(0,0,0,.05),0 1px 3px rgba(0,0,0,.06) inset,0 2px 6px -3px rgba(0,0,0,.2)}
+.tile.sel .im{box-shadow:0 0 0 2px #fff,0 0 0 4px #e11d2a,0 0 0 9px rgba(225,29,42,.13),0 10px 22px -8px rgba(193,15,29,.5)}
+.tile.sel .lab b{color:var(--acc)}
+.car{border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.1) inset,0 6px 18px -10px rgba(0,0,0,.5)}
+.it.sel{background:linear-gradient(180deg,#fff0f1,#ffe3e5);box-shadow:0 1px 0 #fff inset,0 0 0 1px rgba(225,29,42,.18),0 4px 10px -6px rgba(193,15,29,.4)}
+
+/* the pane: a shelf for the header, a pressed card for the facts */
+.insp .ih{background:linear-gradient(180deg,#fff,#fafafb)}
+.insp .facts{background:linear-gradient(180deg,#fafafb,#f5f5f7);border:1px solid #ededf1;border-radius:12px;
+  box-shadow:0 1px 2px rgba(0,0,0,.04) inset;padding:13px 14px;border-top:1px solid #ededf1}
+.insp .facts dt{font-weight:500}
+.insp .facts dd{font-weight:500;color:var(--ink)}
+
+/* SOFT SEAMS. Every hard rule becomes a hairline of light with a short fade under it. */
+.bar,#r4 .bar{border-bottom:0;box-shadow:var(--seam);background:linear-gradient(180deg,#fff,#fcfcfd)}
+.top4{border-bottom:0;box-shadow:0 1px 0 rgba(255,255,255,.9),0 5px 12px -10px rgba(20,18,22,.35)}
+.summ4{border-bottom:0}
+.lede{border-bottom:0;box-shadow:0 1px 0 rgba(255,255,255,.9),0 4px 10px -9px rgba(20,18,22,.3)}
+.side{border-right:0;box-shadow:1px 0 0 rgba(255,255,255,.9),4px 0 14px -10px rgba(20,18,22,.35)}
+.insp{border-left:0;box-shadow:-1px 0 0 rgba(255,255,255,.9),-4px 0 14px -10px rgba(20,18,22,.35)}
+.insp .ih{border-bottom:0;box-shadow:0 1px 0 rgba(255,255,255,.9),0 4px 10px -9px rgba(20,18,22,.35)}
+.it{border-top:0;box-shadow:0 -1px 0 rgba(0,0,0,.04)}
+.lanecard{border:0;box-shadow:0 0 0 1px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.04),0 10px 24px -16px rgba(20,18,22,.4)}
+
+/* THE STICKY HEADER. Its ground faded to transparent, so tiles scrolled straight through it.
+   It is solid, and the fade lives under it as a seam instead of inside it. */
+.hr{background:#fff;z-index:5;box-shadow:none}
+
+/* the wordmark, embossed rather than printed */
+.wn{filter:drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 2px 5px rgba(193,15,29,.28))}
+.brand img{filter:drop-shadow(0 2px 5px rgba(193,15,29,.4))}
+
+/* THE GROUP HEADER. It lives inside the sheet's 18px gutters, so its ground stopped short and
+ * tiles scrolled past it on both sides. It spans the gutters and keeps its own padding, and its
+ * content centres rather than sitting on a baseline. */
+#r4 .body.sheet .hr{margin:0 -18px;padding:12px 18px;align-items:center;border-radius:0}
+
+/* THE DETAILS PANE. Its content ran a hair past the fold, which bought a scrollbar and a band of
+ * dead space under the actions. The media is capped so the pane fits, and the gutter is gone. */
+.insp{scrollbar-width:none}
+.insp::-webkit-scrollbar{width:0;height:0}
+.insp .car{max-height:min(46vh,420px)}
+
+/* ───────── THE DETAILS PANE. The facts list did not fit the plush feel.
+   It was a flat grid of grey labels. Now the pane reads as a stack of small plush objects:
+   a state is a pill you can see at a glance, a fact is a row with a seam under it, and what
+   is machine-written (a run id, a recipe path) is set in mono so it looks like what it is.
+   The three actions were right already and are untouched. ───────── */
+
+/* a state, as an object rather than coloured text */
+.pill{display:inline-flex;align-items:center;gap:5px;padding:2.5px 9px;border-radius:99px;
+  font-size:11.5px;font-weight:600;letter-spacing:.01em;white-space:nowrap;
+  box-shadow:0 1px 0 rgba(255,255,255,.65) inset,0 1px 2px rgba(0,0,0,.07)}
+.p-draft{background:linear-gradient(180deg,#f4f4f6,#e9e9ee);color:#52525b}
+.p-review{background:linear-gradient(180deg,#fff2d9,#ffe6bd);color:#92610a}
+.p-approved{background:linear-gradient(180deg,#e3f8e9,#cdf0d8);color:#15803d}
+.p-live{background:linear-gradient(180deg,#ffe8ea,#ffd6da);color:#b91c1c}
+.p-archived{background:linear-gradient(180deg,#f4f4f6,#e9e9ee);color:#a1a1aa}
+.p-sent{background:linear-gradient(180deg,#e3f8e9,#cdf0d8);color:#15803d}
+.p-queued{background:linear-gradient(180deg,#f4f4f6,#e9e9ee);color:#52525b}
+.p-held{background:linear-gradient(180deg,#fff2d9,#ffe6bd);color:#92610a}
+.p-miss{background:linear-gradient(180deg,#fff2d9,#ffe6bd);color:#92610a;margin-left:7px}
+
+/* the facts: rows with seams, not a grey slab */
+.insp .facts{background:none;border:0;border-top:0;box-shadow:none;padding:0;
+  margin:14px 18px 18px;grid-template-columns:92px 1fr;gap:0;align-items:center}
+.insp .facts dt{color:var(--mute);font-weight:500;font-size:12px;padding:9px 0;
+  box-shadow:0 1px 0 rgba(0,0,0,.045)}
+.insp .facts dd{color:var(--ink);font-weight:500;font-size:12.5px;padding:9px 0;
+  box-shadow:0 1px 0 rgba(0,0,0,.045);display:flex;align-items:center;gap:6px;min-width:0}
+.insp .facts dt:last-of-type,.insp .facts dd:last-of-type{box-shadow:none}
+.insp .facts dd.num,.insp .facts dd .num{font:500 11.5px/1.5 "JetBrains Mono",ui-monospace,Menlo,monospace;
+  color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* the header of the pane, given the same weight as a card's */
+.insp .ih{padding:16px 18px;gap:11px}
+.insp .ih .w b{font-size:14px;letter-spacing:-.005em}
+.insp .ih .w small{font-size:11.5px;color:var(--mute)}
+
+/* the copy under the media reads as the post, so it gets room */
+.insp .cap{padding:15px 18px 2px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+
+/* the actions sit on their own shelf at the foot of the stack */
+.act4{padding:4px 18px 18px;gap:8px}
+
+/* A lane row that is being looked at says so, the same way the nav does. */
+.ln.on,a.ln.on{background:linear-gradient(180deg,#fff0f1,#ffe3e5);color:var(--acc);font-weight:500;
+  box-shadow:0 1px 0 #fff inset,0 0 0 1px rgba(225,29,42,.18),0 4px 10px -6px rgba(193,15,29,.4)}
+.ln.on .c{color:rgba(193,15,29,.65)}
+
+/* THE EMPTY VIEW. It used to be one grey sentence adrift in a white field. It now says what is
+ * empty, why, and hands back the control that emptied it. */
+.empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px;
+  padding:64px 24px;max-width:420px;margin:0 auto}
+.eico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:24px;color:var(--mute);
+  background:linear-gradient(180deg,#fafafb,#f0f1f4);
+  box-shadow:0 1px 0 #fff inset,0 0 0 1px rgba(0,0,0,.05),0 6px 16px -8px rgba(20,18,22,.35)}
+.empty b{font-size:14.5px;font-weight:600;margin-top:3px}
+.empty p{font-size:12.5px;color:var(--mute);line-height:1.55;margin:0}
+.empty .btn{margin-top:7px}
+
+/* TITLES WEAR THE WORDMARK'S TREATMENT. The page's name and the name of the thing open in the
+ * pane are the two places the product speaks in its own voice, so they get Unbounded and the
+ * mark's red with its white top edge, exactly as the wordmark does. */
+.bar > b,.insp .ih .w b{
+  font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.015em;
+  background-image:linear-gradient(170deg,#e11d2a 0%,#cf1220 55%,#b50f1b 100%);
+  -webkit-background-clip:text;background-clip:text;color:#d1151f;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(193,15,29,.22));
+  padding-bottom:.06em;margin-bottom:-.06em}
+.bar > b{font-size:15px}
+/* The pane's title is a real sentence and can be long, so it is set a touch tighter. */
+.insp .ih .w b{font-size:13.5px;line-height:1.3}
+
+/* The group header names the run, which is the product speaking, so it reads like the title. */
+.hr b{font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:600;font-size:13px;letter-spacing:-.015em;
+  background-image:linear-gradient(170deg,#e11d2a 0%,#cf1220 55%,#b50f1b 100%);
+  -webkit-background-clip:text;background-clip:text;color:#d1151f;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(193,15,29,.22))}
+
+/* LIST, AS A SWITCH. Sheet and List were a pair of tabs, which asks you to read two words to
+ * learn there are two views. The sheet is the default, so the only question is the list. */
+.tgl{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:9px;
+  font:500 12.5px Inter,system-ui,sans-serif;color:var(--ink2);cursor:pointer;border:1px solid #e4e4e8;
+  background:linear-gradient(180deg,#fff,#f6f6f8);box-shadow:0 1px 0 #fff inset,0 1px 2px rgba(0,0,0,.05)}
+.tgl > i{font-size:14px;color:var(--mute)}
+.tgl:hover{box-shadow:0 1px 0 #fff inset,0 2px 5px rgba(0,0,0,.08)}
+.tgl.on{color:var(--acc);border-color:transparent;background:linear-gradient(180deg,#fff0f1,#ffe3e5);
+  box-shadow:0 1px 0 #fff inset,0 0 0 1px rgba(225,29,42,.2),0 4px 10px -6px rgba(193,15,29,.4)}
+.tgl.on > i{color:var(--acc)}
+.tgl.ico{width:32px;padding:0;justify-content:center}
+
+/* Search sits at the foot of the sidebar, where the hint about it already lives. */
+.search.foot{margin-top:auto;flex:none}
+.keys{margin-top:8px}
+
+/* SECONDARY TEXT. It was all one flat grey, which reads as filler. The figures carry weight and
+ * ink, the words between them step back, and the separators are quieter than either. */
+.bar span b{font-weight:600;color:var(--ink);font-size:12.5px}
+.bar span b.warn{color:#b45309}
+.bar span i{font-style:normal;color:var(--faint);margin:0 7px}
+/* That spacing is for the separators between facts in the bar, not for an icon inside a button. */
+.bar button i,.bar .btn i{margin:0}
+
+/* A tile says its placement, then its state as the same pill the pane uses. */
+.tile .lab{align-items:center;gap:8px}
+.tile .lab b{font-weight:500;color:var(--ink2);font-size:11.5px}
+.tile.sel .lab b{color:var(--acc);font-weight:600}
+.tile .lab .pill{font-size:10.5px;padding:2px 7px}
+.it .rt .pill{font-size:11px}
+
+/* The pane's second line names the platform and the product; the platform is the anchor. */
+.insp .ih .w small{color:var(--ink2);font-weight:500}
+
+/* A ring's label is a name, so it is allowed to be one. */
+#r4 .rg{width:auto;min-width:58px;max-width:104px}
+#r4 .rg small{font-weight:500;color:var(--ink2)}
+#r4 .rg.on small{font-weight:600}
+
+/* The pane's dd sets an ink colour and outranked the pill's own, so every pill came out grey.
+ * A pill carries its own colour wherever it sits. */
+.insp .facts dd .pill,.tile .lab .pill,.it .rt .pill,.pill{color:inherit}
+.insp .facts dd .p-draft,.tile .lab .p-draft,.it .rt .p-draft,.p-draft{color:#52525b}
+.insp .facts dd .p-review,.tile .lab .p-review,.it .rt .p-review,.p-review{color:#92610a}
+.insp .facts dd .p-approved,.tile .lab .p-approved,.it .rt .p-approved,.p-approved{color:#15803d}
+.insp .facts dd .p-live,.tile .lab .p-live,.it .rt .p-live,.p-live{color:#b91c1c}
+.insp .facts dd .p-archived,.tile .lab .p-archived,.it .rt .p-archived,.p-archived{color:#a1a1aa}
+.insp .facts dd .p-sent,.tile .lab .p-sent,.it .rt .p-sent,.p-sent{color:#15803d}
+.insp .facts dd .p-queued,.tile .lab .p-queued,.it .rt .p-queued,.p-queued{color:#52525b}
+.insp .facts dd .p-held,.tile .lab .p-held,.it .rt .p-held,.p-held{color:#92610a}
+.insp .facts dd .p-miss,.tile .lab .p-miss,.it .rt .p-miss,.p-miss{color:#92610a}
+
+/* The icon in a primary button is part of the label, so it is the label's colour. */
+.btn.pri,.btn.pri i{color:#fff}
+
+/* The agent picker names a product, so it shows that product's mark beside its name. */
+.seg.agents button{display:inline-flex;align-items:center;gap:6px}
+.seg.agents img{width:13px;height:13px;display:block;flex:none;opacity:.55}
+.seg.agents button.on img{opacity:1;filter:brightness(0) invert(1)}
+
+/* A header carries the page, what is open, and its detail on one line. */
+.bar .sub2{color:var(--mute);font-size:12.5px}
+
+/* The agent picker is as wide as its two names, not as wide as the form. */
+.seg.agents{width:auto;align-self:flex-start}
+/* The page name and its detail need air between them. */
+.bar > span + span{margin-left:2px}
+.bar span[style*="font-weight: 600"] + span{margin-left:10px}
+
+/* THE BUILDER. It was a flat outlined box in a plush room. It is a card now, its field labels
+ * carry weight, and what you type into presses in like every other track. */
+.studio .form{border:0;border-radius:14px;padding:16px;gap:13px;
+  background:linear-gradient(180deg,#fff,#fcfcfd);
+  box-shadow:0 0 0 1px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.04),0 12px 28px -18px rgba(20,18,22,.45)}
+.studio .form h2{font-size:13.5px;font-weight:600}
+.studio label{font-size:12px;font-weight:600;color:var(--ink2);gap:6px}
+.studio textarea{border:0;background:linear-gradient(180deg,#eceef1,#f4f5f7);
+  box-shadow:0 1px 3px rgba(0,0,0,.07) inset;border-radius:9px;padding:9px 11px}
+.studio textarea:focus{outline:none;box-shadow:0 1px 3px rgba(0,0,0,.07) inset,0 0 0 3px rgba(225,29,42,.18)}
+.studio .hint{font-size:11.5px;line-height:1.5}
+
+/* An empty results pane fills the room it is standing in, instead of floating in the top of it. */
+.studio .empty{border:1.5px dashed #e0e0e6;border-radius:14px;min-height:min(420px,52vh);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(180deg,#fcfcfd,#f7f7f9);padding:36px 24px;text-align:center}
+.studio .empty i{font-size:26px;color:var(--faint)}
+.studio .empty p{color:var(--mute);font-size:13px;max-width:320px;margin:0}
+.studio > div:last-child{display:flex;flex-direction:column;min-height:0}
+/* Connect your machine: the first-run modal (src/components/ConnectMachine.tsx). */
+.cm-back{position:fixed;inset:0;z-index:50;background:rgba(24,24,27,.42);display:grid;place-items:center;padding:16px;overflow:auto}
+.cm{width:100%;max-width:620px;position:relative;gap:14px;box-shadow:0 24px 60px rgba(24,24,27,.18)}
+.cm-x{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--mute)}
+.cm-x:hover{background:var(--hover);color:var(--ink)}
+.cm-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.cm-steps li{display:flex;flex-direction:column;gap:8px;opacity:.5}
+.cm-steps li.on,.cm-steps li.done{opacity:1}
+.cm-steps h2{display:flex;align-items:center;gap:8px}
+.cm-steps .n{width:20px;height:20px;border-radius:50%;background:var(--side);border:1px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:600;color:var(--ink2)}
+.cm-steps li.on .n{background:var(--ink);border-color:var(--ink);color:#fff}
+.cm-steps li.done .n{background:var(--sent);border-color:var(--sent);color:#fff}
+.cm-steps .row input{flex:1;min-width:180px;width:auto}
+.cm-tabs{display:flex;gap:4px}
+.cm-tabs button{font-size:12.5px;padding:4px 10px;border-radius:7px;color:var(--mute)}
+.cm-tabs button.on{background:var(--side);box-shadow:0 0 0 1px var(--line);color:var(--ink);font-weight:500}
+.cm-cmd{display:flex;gap:8px;align-items:flex-start;background:var(--side);border:1px solid var(--line);border-radius:10px;padding:10px}
+.cm-cmd code{flex:1;min-width:0;font:500 12px/1.55 "JetBrains Mono",ui-monospace,monospace;overflow-wrap:anywhere;color:var(--ink)}
+.cm-cmd p{flex:1;margin:0;font-size:13px;color:var(--ink2)}
+.cm-cmd .btn{flex:none;display:flex;gap:5px;align-items:center}
+.card .fine.warn{color:#b91c1c}
+.cm-status{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.cm-status p{margin:0;font-size:13px;color:var(--ink2);display:flex;gap:8px;align-items:center}
+.cm-status p.fine{font-size:12px;color:var(--mute);padding-left:16px}
+.cm-status .dot{width:8px;height:8px;border-radius:50%;flex:none;background:#d4d4d8;animation:cmpulse 1.4s ease-in-out infinite}
+.cm-status p.ok .dot{background:var(--sent);animation:none;box-shadow:0 0 0 3px rgba(22,163,74,.15)}
+@keyframes cmpulse{50%{opacity:.35}}
+.row.end{justify-content:flex-end}
+@media (max-width:560px){.cm-cmd{flex-direction:column}.cm-cmd .btn{align-self:flex-end}}
+/* The account page sits in the app frame: left-aligned in the page pane, not centred on a bare page. */
+.page .acct{margin:0;padding:24px 28px 40px;max-width:760px}
+.acct .card > .btn{align-self:flex-start}
+.side .acctln{flex:none;display:flex;gap:8px;align-items:center;margin-top:4px}
+.side .acctln i{font-size:16px;color:var(--mute)}
+/* A full-width button on the sign-in card reads as one control: its label sits in the middle. */
+.signin .card .btn{justify-content:center}
+/* Something that needs the user's own computer, and that computer is not answering. */
+.machine-off{margin:0;font-size:12.5px;color:var(--ink2);background:var(--side);border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;gap:7px;align-items:flex-start}
+.machine-off i{color:var(--mute);margin-top:2px;flex:none}
+.cm-local{margin:0;font-size:12.5px;color:var(--ink2);background:var(--side);border:1px solid var(--line);border-radius:10px;padding:9px 11px;display:flex;gap:8px;align-items:flex-start}
+.cm-local i{color:var(--mute);margin-top:2px;flex:none;font-size:15px}
+/* The corner pill when the user's computer is not answering (src/components/MachineStatus.tsx). */
+.machine-pill{position:fixed;right:16px;bottom:16px;z-index:40;max-width:calc(100vw - 32px);display:flex;gap:9px;align-items:center;text-align:left;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 12px;font-size:12.5px;color:var(--ink2);box-shadow:0 8px 24px rgba(24,24,27,.12)}
+.machine-pill b{color:var(--ink);font-weight:600}
+.machine-pill .dot{width:8px;height:8px;border-radius:50%;background:#f59e0b;flex:none;box-shadow:0 0 0 3px rgba(245,158,11,.18)}
+.machine-pill:hover{border-color:var(--ink)}
+/* The scope switcher (Side.tsx): Social, Ads, Email. One plush row; it opens to all three. */
+.scope{position:relative;flex:none}
+.scope-btn{width:100%;display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;font-size:13.5px;font-weight:600;color:#fff;background:var(--plush);box-shadow:var(--plush-in),0 3px 7px -1px rgba(193,15,29,.45);cursor:pointer;border:0}
+.scope-btn i{font-size:15px}
+.scope-btn .cv{margin-left:auto;font-size:13px;opacity:.85}
+.scope-menu{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;box-shadow:0 14px 34px rgba(24,24,27,.16);display:flex;flex-direction:column;gap:2px}
+.scope-menu a{display:flex;gap:9px;align-items:center;padding:8px 9px;border-radius:8px;font-size:13.5px;color:var(--ink2);text-decoration:none}
+.scope-menu a:hover{background:var(--hover);color:var(--ink)}
+.scope-menu a.on{color:var(--acc);font-weight:600}
+.scope-menu a i{font-size:15px;color:var(--mute)}
+.scope-menu a.on i{color:var(--acc)}
+.scope-menu .c{margin-left:auto;font-size:12px;color:var(--mute);font-weight:500}
+.scope-menu .ck{margin-left:6px;font-size:13px}
+.scope-menu a:not(.on) .c + .ck{display:none}
+/* AN EMAIL in the details pane (EmailPreview.tsx): the inbox line, then the message. */
+.em{display:flex;flex-direction:column;gap:10px;margin:2px 0 6px}
+.em-head{display:flex;gap:11px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.em-av{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--plush);color:#fff;font-weight:600;font-size:14px}
+.em-meta{min-width:0;display:flex;flex-direction:column;gap:2px}
+.em-from{font-size:12.5px;color:var(--mute);display:flex;gap:6px;flex-wrap:wrap}
+.em-from b{color:var(--ink);font-weight:600}
+.em-subj{font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.35}
+.em-pre{font-size:12.5px;color:var(--mute);line-height:1.4}
+.em-bar{display:flex;align-items:center;gap:8px}
+.em-seg{display:flex;gap:3px;background:var(--hover);border-radius:9px;padding:3px}
+.em-seg button{display:flex;gap:5px;align-items:center;font-size:12.5px;padding:5px 9px;border-radius:7px;color:var(--mute)}
+.em-seg button.on{background:#fff;color:var(--ink);font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.em-big{margin-left:auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--mute);border:1px solid var(--line);background:#fff}
+.em-big:hover{color:var(--ink);border-color:var(--ink2)}
+.em-body{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.em-body iframe{display:block;border:0;background:#fff}
+.em-body.m-mobile{background:var(--side);padding:16px 0}
+.em-phone{margin:0 auto;width:375px;max-width:100%;border:8px solid #18181b;border-radius:30px;overflow:hidden;background:#fff}
+.em-phone iframe{max-width:100%}
+.em-text{margin:0;padding:14px 16px;white-space:pre-wrap;font:12.5px/1.6 "JetBrains Mono",ui-monospace,monospace;color:var(--ink2);max-height:640px;overflow:auto}
+.em-gone{height:240px;display:grid;place-items:center;align-content:center;gap:8px;text-align:center;color:var(--mute);font-size:13px;padding:20px}
+.em-gone i{font-size:26px}
+.em-full{position:fixed;inset:0;z-index:70;background:rgba(24,24,27,.5);display:grid;place-items:center;padding:24px;overflow:auto}
+.em-full-in{position:relative;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.3);max-width:100%}
+.em-full-in iframe{display:block;border:0;max-width:100%}
+.em-full-in .em-phone{margin:24px}
+.em-x{position:absolute;top:10px;right:10px;z-index:2;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);color:var(--ink)}
+.insp .em{margin:0 18px 6px}
+.em-fit{width:100%;overflow:hidden}
+/* Email's template registry, under the day's sends. */
+.tpl-reg{border-top:1px solid var(--line);margin-top:8px;padding-top:4px}
+.tpl-h{display:flex;align-items:baseline;gap:10px;padding:16px 0 2px}
+.tpl-h b{font:600 18px/1.2 Unbounded,Inter,system-ui,sans-serif;letter-spacing:-.01em;color:var(--acc)}
+.tpl-h span{color:var(--mute);font-size:12.5px}
+/* An empty day fills the pane, inset by the pane's padding, instead of sitting at its top edge. */
+#r4 .body:has(> .empty){display:flex;flex-direction:column;padding:18px}
+#r4 .body > .empty{flex:1;max-width:none;width:100%;margin:0;justify-content:center;border:1px dashed var(--line);border-radius:14px}
+/* An email card's picture: the top of the message itself. */
+.em-thumb{position:absolute;inset:0;overflow:hidden;background:#fff}
+
+/* the computer's state, under the logo: a plush action when it is missing, a quiet bed when live */
+.mbtn{display:flex;align-items:center;gap:10px;width:100%;margin:2px 0 10px;padding:9px 11px;border-radius:10px;text-align:left;font:inherit;border:0}
+.mbtn .t{display:flex;flex-direction:column;min-width:0;line-height:1.25}
+.mbtn b{font-size:13px;font-weight:600}
+.mbtn small{font-size:11.5px}
+.mbtn.off{cursor:pointer;color:#fff;background:var(--plush);box-shadow:var(--plush-in),0 4px 10px -3px rgba(193,15,29,.5)}
+.mbtn.off small{color:rgba(255,255,255,.82)}
+.mbtn.off i{font-size:18px;color:#fff}
+.mbtn.off .go{margin-left:auto;font-size:14px;opacity:.85;transition:transform .15s}
+.mbtn.off:hover{filter:brightness(1.06)}
+.mbtn.off:hover .go{transform:translateX(2px)}
+.mbtn.off:active{transform:translateY(1px)}
+.mbtn.off:focus-visible{outline:2px solid rgba(225,29,42,.45);outline-offset:2px}
+.mbtn.live{cursor:default;color:#fff;background:var(--plush);box-shadow:var(--plush-in),0 4px 10px -3px rgba(193,15,29,.5)}
+.mbtn.live b{color:#fff}
+.mbtn.live i{font-size:18px;color:#fff}
+.mbtn.live .go{margin-left:auto;font-size:15px}
+
+/* Where the media lives (TodayView Where): under the media, a small plush card naming each file and
+ * the folder on this computer (or the owner's storage) it loads from. Aircheck holds none of them. */
+.insp .where{margin:12px 18px 0;padding:11px 12px;border-radius:12px;background:linear-gradient(180deg,#fafafb,#f4f4f6);
+  border:1px solid #ededf1;box-shadow:0 1px 0 #fff inset;display:flex;flex-direction:column;gap:10px}
+.insp .where .wg{display:flex;flex-direction:column;gap:7px;min-width:0}
+.insp .where .wh{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink)}
+.insp .where .wh i{font-size:16px;color:var(--acc)}
+.insp .where .wh b{font-weight:600}
+.insp .where .wh .num{margin-left:auto;font-size:11.5px;color:var(--mute);font-weight:500}
+.insp .where ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.insp .where li{display:flex;align-items:center;gap:7px;min-width:0;font:500 11.5px/1.5 "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--ink2)}
+.insp .where li i{font-size:13px;color:var(--mute);flex:none}
+.insp .where li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.insp .where li .th{flex:none;width:30px;height:30px;border-radius:6px;object-fit:cover;background:#0b0b0d;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.12)}
+.insp .where li.more{color:var(--mute);padding-left:37px}
+.insp .where .dir{display:flex;align-items:flex-start;gap:6px;font:500 11px/1.45 "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--mute);
+  background:#fff;border:1px solid #ededf1;border-radius:8px;padding:6px 8px;overflow-wrap:anywhere}
+.insp .where .dir i{font-size:13px;flex:none;margin-top:1px}
+
+/* ---------------------------------------------------------------- the review gate (2026-11-14) */
+.rev5{color:#b45309}
+.nav a .c.rev5{color:#b45309;font-weight:500}
+.sect.acct5 span{color:var(--ink);font-weight:600;font-size:13px}
+.tile .im{position:relative}
+.flag5{position:absolute;right:8px;bottom:8px;display:flex;gap:4px;align-items:center;background:#fff;border-radius:99px;padding:2px 7px;font-size:11px;font-weight:500;color:#b45309;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.tile .lab .pill{font-size:11px;padding:1px 7px}
+.hr .bulk5{margin-left:auto;height:24px;font-size:12px}
+.gate5{padding:0 18px 10px;display:flex;flex-direction:column;gap:8px}
+.gate5 .row{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px}
+.gate5 .btn{height:34px;justify-content:center;font-size:13.5px}
+.gate5 .btn kbd{font:500 10.5px Inter,sans-serif;border:1px solid rgba(0,0,0,.15);border-radius:4px;padding:0 4px;opacity:.75}
+.gate5 .btn.ok{background:var(--sent);border-color:var(--sent);color:#fff}
+.gate5 .btn.ok kbd{border-color:rgba(255,255,255,.5)}
+.gate5 .btn.ok.on{background:#15803d;box-shadow:0 0 0 3px rgba(22,163,74,.18)}
+.gate5 .btn.on:not(.ok){border-color:var(--ink);box-shadow:0 0 0 1px var(--ink) inset}
+.gate5 .ask{display:flex;gap:8px;align-items:flex-end}
+.gate5 .ask textarea{flex:1;font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:7px 9px;resize:vertical}
+.gate5 .ask textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px var(--sel)}
+.view5{margin:0 18px 10px;align-self:flex-start;background:var(--hover);border-radius:8px;padding:2px}
+.pv5{margin:0 18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.pv5 .h{display:flex;gap:8px;align-items:center;padding:8px 10px;font-size:12.5px}
+.pv5 .h .av{transform:scale(.8)}
+.pv5 .h span{margin-left:auto;color:var(--mute);font-size:12px}
+.pv5 .m{position:relative;background:#0b0b0d;overflow:hidden}
+.pv5 .m img,.pv5 .m video{display:block;width:100%;height:100%;object-fit:cover}
+.pv5 .m .ct{position:absolute;top:10px;right:10px;font-size:11.5px;font-weight:600;color:#fff;background:rgba(0,0,0,.55);border-radius:99px;padding:2px 8px}
+.pv5 .m .ar{position:absolute;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.25);font-size:12px}
+.pv5 .m .ar.p{left:10px}.pv5 .m .ar.n{right:10px}
+.pv5 .t{padding:8px 10px 6px;font-size:13px;color:var(--ink);white-space:pre-wrap}
+.pv5 .t .more{color:var(--mute);font:inherit;padding:0;background:none;border:0;cursor:pointer}
+.pv5 .f{display:flex;gap:16px;align-items:center;padding:7px 10px;border-top:1px solid var(--line);color:var(--mute);font-size:12px}
+.pv5 .f span{display:flex;gap:4px;align-items:center}
+.pv5 .f .pl{margin-left:auto;font-size:15px}
+.pre5{margin:12px 18px 4px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:7px;font-size:12.5px}
+.pre5 .h{display:flex;justify-content:space-between;color:var(--mute);font-size:12px}
+.pre5 .h b{color:var(--ink);font-weight:600;font-size:12.5px}
+.pre5 .r{display:flex;gap:8px;align-items:center;color:var(--ink2)}
+.pre5 .r i{font-size:15px;flex:none}
+.pre5 .ok i{color:var(--sent)}.pre5 .bad i{color:#b45309}
+.pre5 .m{margin-left:auto;color:var(--mute);font:11.5px "JetBrains Mono",ui-monospace,monospace;white-space:nowrap}
+.pre5 .m.fx{color:var(--acc);background:none;border:0;padding:0;cursor:pointer}
+
+/* ---------------------------------------------------------------- the dark toast: every app-level alert */
+.toast5{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:60;display:flex;gap:12px;align-items:center;max-width:calc(100vw - 32px);padding:10px 10px 10px 16px;background:var(--ink);color:#e4e4e7;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.28),0 2px 6px rgba(0,0,0,.18);font-size:12.5px}
+.toast5>i{color:#fbbf24;font-size:16px;flex:none}
+.toast5 .btn{height:26px;font-size:12px;background:#fff;color:var(--ink);border-color:#fff;flex:none}
+.toast5 .x{color:#a1a1aa;background:none;border:0;padding:4px;cursor:pointer;font-size:14px}
+.toast5.solo{padding-right:16px}
+
+/* ---------------------------------------------------------------- the computer, offline */
+.mbtn.sleep{flex-direction:column;align-items:stretch;gap:6px;padding:10px 12px;border-radius:12px;background:#fff;border:1px solid var(--line);font-size:12.5px;color:var(--ink2);cursor:default}
+.mbtn.sleep .t1{display:flex;gap:8px;align-items:center;font-weight:600;color:var(--ink);font-size:13px}
+.mbtn.sleep .t1 .d{width:8px;height:8px;border-radius:50%;background:#f59e0b;flex:none}
+.mbtn.sleep .btn{justify-content:center;white-space:nowrap}
+.mbtn.sleep .lk{color:var(--acc);font-size:12px;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+
+/* ---------------------------------------------------------------- connect, the checklist */
+.cm-tabs.wide{flex-wrap:wrap}
+.cm-tabs.wide button{display:inline-flex;align-items:center;gap:6px}
+.cm-tabs.wide img{width:14px;height:14px}
+.cm-deep{display:flex;gap:6px;align-items:center;margin:0;font-size:12.5px;color:var(--mute);flex-wrap:wrap}
+.cm-deep b{color:var(--ink);font-weight:500}
+.cm-deep button{color:var(--acc);background:none;border:0;padding:0;font:inherit;cursor:pointer}
+.cm-chk{list-style:none;margin:4px 0 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--side);display:grid;gap:9px}
+.cm-chk li{display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;font-size:13px;color:var(--ink2)}
+.cm-chk li .s{width:18px;height:18px;display:grid;place-items:center;font-size:18px}
+.cm-chk li.ok .s{color:var(--sent)}.cm-chk li.todo .s{color:var(--faint)}
+.cm-chk li.ok b{font-weight:500;color:var(--ink)}
+.cm-chk li small{color:var(--mute);font-size:12px}
+.cm-chk li .btn{height:24px;font-size:12px}
+
+/* The setup-link toast on /demo, phone only (src/components/SetupLinkToast.tsx). */
+.slt{position:fixed;left:12px;right:12px;bottom:16px;z-index:50;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;
+  box-shadow:0 12px 32px rgba(0,0,0,.16),0 2px 6px rgba(0,0,0,.06);padding:14px;display:flex;flex-direction:column;gap:10px}
+.slt-h{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.slt-h b{font-size:15px;font-weight:600;color:var(--ink)}
+.slt-x{border:0;background:transparent;font-size:18px;color:var(--mute);width:28px;height:28px;display:grid;place-items:center;padding:0}
+.slt-f{display:flex;gap:8px}
+.slt-f input{flex:1;min-width:0;height:36px;box-sizing:border-box;border:1px solid rgba(0,0,0,.14);border-radius:9px;padding:0 12px;font:inherit;font-size:16px;outline:0}
+.slt-f .btn{height:36px;white-space:nowrap;box-sizing:border-box}
+.slt-m{margin:0;font-size:13.5px;color:var(--mute)}

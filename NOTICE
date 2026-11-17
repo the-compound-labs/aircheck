@@ -1,0 +1,3 @@
+Aircheck
+
+Compound Labs built Aircheck. The web app and Worker use AGPL-3.0 (LICENSE). The MCP server, setup skill and JSON schemas use MIT (mcp/LICENSE, skills/LICENSE, public/schema/LICENSE). mcp/local-api.mjs is built from src/server and ships in the MIT package. The Aircheck name and on-air mark, and the Compound Labs name, mark and lockup, are Compound Labs trademarks and are not licensed; a fork must use its own name and mark. Third-party logos in public/logos, public/brand-icons, public/claude.svg and public/openai.svg belong to their owners and only identify the services Aircheck works with. BDO Grotesk, the lockup's wordmark font, uses the SIL Open Font License 1.1. Newsreader, Inter and JetBrains Mono load from Google Fonts under the SIL Open Font License 1.1.

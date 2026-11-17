@@ -1,0 +1,11 @@
+/* The opt-out control for ad measurement. Plain, on any surface. */
+.ads-choice { max-width: 560px; margin: 16px 0; font-size: 14px; line-height: 1.5; text-align: left; }
+/* Doubled class: a host's form rules (.card label, .card input) must not turn this into a field. */
+.ads-choice.ads-choice label { display: flex; flex-direction: row; gap: 10px; align-items: center; font-size: 14px; font-weight: 500; color: inherit; cursor: pointer; }
+.ads-choice.ads-choice input { width: 16px; height: 16px; margin: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; flex: none; accent-color: currentColor; }
+.ads-choice input:disabled + span { opacity: .55; }
+.ads-choice.ads-choice p { margin: 4px 0 0 26px; opacity: .72; font-size: 13px; }
+.ads-choice a { color: inherit; text-decoration: underline; }
+.ads-section { margin-top: 36px; }
+.ads-section h2 { font: 600 20px/1.3 Unbounded, Inter, system-ui, sans-serif; letter-spacing: -.01em; margin-bottom: 14px; scroll-margin-top: 24px; }
+.ads-section code { font: 400 .92em 'JetBrains Mono', ui-monospace, monospace; }

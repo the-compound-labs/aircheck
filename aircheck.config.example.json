@@ -1,0 +1,87 @@
+{
+  "$comment": "A setup with no special tooling. Agents drop one JSON file per queued post into queue/<YYYY-MM-DD>/ (schema in README). Lanes and products are listed here.",
+  "dataDir": "~/.aircheck",
+  "timezone": "America/New_York",
+  "lanes": {
+    "source": "static",
+    "items": [
+      {
+        "id": "brand-x",
+        "name": "Brand on X",
+        "platform": "x",
+        "handle": "@yourbrand",
+        "formats": [
+          "text",
+          "image"
+        ],
+        "brief": "Short product posts with one screenshot."
+      },
+      {
+        "id": "brand-linkedin",
+        "name": "Brand on LinkedIn",
+        "platform": "linkedin",
+        "handle": "Your Brand",
+        "formats": [
+          "carousel"
+        ],
+        "brief": "Five-slide PDF-style carousels."
+      }
+    ]
+  },
+  "adLanes": {
+    "source": "ad-accounts",
+    "accounts": "~/code/ads/accounts.json"
+  },
+  "products": {
+    "source": "static",
+    "items": [
+      {
+        "id": "widget",
+        "name": "Widget",
+        "url": "https://example.com",
+        "repository": "~/code/widget"
+      }
+    ]
+  },
+  "queue": [
+    {
+      "source": "folder",
+      "dir": "~/.aircheck/queue"
+    }
+  ],
+  "ads": [
+    {
+      "source": "ad-folder",
+      "dir": "~/.aircheck/ads"
+    }
+  ],
+  "mediaRoots": [
+    "~/.aircheck",
+    "~/code/social-output"
+  ],
+  "agents": {
+    "default": "claude",
+    "timeoutMinutes": 20,
+    "workspace": "~/code/social-pipeline",
+    "commands": {
+      "claude": [
+        "claude",
+        "-p",
+        "{prompt}",
+        "--permission-mode",
+        "acceptEdits",
+        "--add-dir",
+        "{workspace}"
+      ],
+      "codex": [
+        "codex",
+        "exec",
+        "--sandbox",
+        "workspace-write",
+        "--skip-git-repo-check",
+        "{prompt}"
+      ]
+    },
+    "adWorkspace": "~/code/ad-pipeline"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aircheck.dev/schema/manifest.schema.json",
+  "title": "Aircheck manifest",
+  "description": "One queued post, ad creative or email. Written to <queue>/<YYYY-MM-DD>/<anything>.json. A manifest with an `ad` block is an ad creative; one with an `email` block is an email; otherwise it is a post. A manifest cannot have both `ad` and `email`.",
+  "type": "object",
+  "required": [
+    "lane"
+  ],
+  "properties": {
+    "lane": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The account or lane it goes out on. For an ad creative, the ad platform or account."
+    },
+    "at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When it sends, ISO 8601. Omit for unscheduled."
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "text",
+        "image",
+        "carousel",
+        "video",
+        "thread",
+        "article"
+      ],
+      "description": "Inferred from media when absent."
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "description": "The copy exactly as it will go out."
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1,
+            "description": "A path (relative to the manifest's folder, or absolute) or an https URL."
+          },
+          {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "alt": {
+                "type": "string"
+              }
+            },
+            "anyOf": [
+              {
+                "required": [
+                  "path"
+                ]
+              },
+              {
+                "required": [
+                  "url"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "description": "Ordered media sources."
+    },
+    "status": {
+      "type": "string",
+      "description": "A post or email: queued, sent, held, failed (default queued). An ad creative: draft, review, approved, live, archived (default draft)."
+    },
+    "postUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The permalink, after sending. Posts only."
+    },
+    "url": {
+      "type": "string",
+      "description": "A link the post carries."
+    },
+    "meta": {
+      "type": "object",
+      "description": "Your own detail. Free form; keep it small."
+    },
+    "ad": {
+      "type": "object",
+      "required": [
+        "product"
+      ],
+      "properties": {
+        "product": {
+          "type": "string",
+          "description": "What the creative is about."
+        },
+        "format": {
+          "type": "string",
+          "description": "The placement it is cut for, e.g. carousel-feed, still-square, video-portrait-15s, search-text."
+        },
+        "run": {
+          "type": "string",
+          "description": "The production run. Creatives are grouped by it."
+        },
+        "approved": {
+          "type": "boolean",
+          "default": false
+        },
+        "recipe": {
+          "type": "string",
+          "description": "The recipe or script that built it, so Repair can re-run it."
+        }
+      }
+    },
+    "email": {
+      "type": "object",
+      "required": [
+        "subject"
+      ],
+      "properties": {
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Addresses, or the name of the list it goes to."
+        },
+        "replyTo": {
+          "type": "string"
+        },
+        "preheader": {
+          "type": "string"
+        },
+        "html": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "description": "A path (relative to the manifest's folder, or absolute) or an https URL."
+            },
+            {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "alt": {
+                  "type": "string"
+                }
+              },
+              "anyOf": [
+                {
+                  "required": [
+                    "path"
+                  ]
+                },
+                {
+                  "required": [
+                    "url"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "ad"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "enum": [
+              "draft",
+              "review",
+              "approved",
+              "live",
+              "archived"
+            ]
+          }
+        },
+        "not": {
+          "required": [
+            "email"
+          ]
+        }
+      },
+      "else": {
+        "properties": {
+          "status": {
+            "enum": [
+              "queued",
+              "sent",
+              "held",
+              "failed"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

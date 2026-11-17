@@ -1,0 +1,49 @@
+{
+  "name": "aircheck-mcp",
+  "version": "0.6.0",
+  "description": "The Aircheck MCP server queues posts as JSON manifests on your machine, marks them sent, syncs them to an optional aircheck.dev account and re-runs a post's own pipeline locally. It is open source and uses MIT.",
+  "mcpName": "io.github.the-compound-labs/aircheck",
+  "type": "module",
+  "bin": {
+    "aircheck-mcp": "server.mjs"
+  },
+  "main": "server.mjs",
+  "files": [
+    "server.mjs",
+    "bridge.mjs",
+    "lib.mjs",
+    "local-api.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prepublishOnly": "node ../scripts/build-mcp-local.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  },
+  "homepage": "https://aircheck.dev/docs",
+  "author": "Compound Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-compound-labs/aircheck.git",
+    "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/the-compound-labs/aircheck/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "claude-code",
+    "codex",
+    "social-media",
+    "review",
+    "self-hosted"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  // A Cloudflare Workers deploy of the hosted app: copy this to wrangler.jsonc and fill it in.
+  // Local use needs none of it: `npm run dev` runs the app on your machine with no account.
+  // See docs/self-host.md.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "aircheck",
+  "main": "worker/index.mjs",
+  "compatibility_date": "2026-09-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS", "html_handling": "none", "run_worker_first": true },
+  // Sign-in attempts and account reads are admitted per client before they reach the database.
+  // namespace_id is any number unique to your Cloudflare account.
+  "ratelimits": [
+    { "name": "AUTH_LIMIT", "namespace_id": "1001", "simple": { "limit": 10, "period": 60 } },
+    { "name": "DATABASE_CLIENT_LIMIT", "namespace_id": "1002", "simple": { "limit": 120, "period": 60 } },
+    { "name": "SETUP_LINK_LIMIT", "namespace_id": "1003", "simple": { "limit": 3, "period": 60 } },
+    { "name": "SETUP_LINK_GLOBAL", "namespace_id": "1004", "simple": { "limit": 30, "period": 60 } }
+  ],
+  // Secrets, set with `npx wrangler secret put NAME`:
+  //   SUPABASE_SERVICE_ROLE_KEY   the server key of your Supabase project (required)
+  //   SUPABASE_ANON_KEY           its public key, for Google sign-in (optional)
+  //   AIRCHECK_RESEND_KEY         a Resend key, for welcome and password-reset mail (optional)
+  //   AIRCHECK_INTERNAL_ADDRESSES your own IP addresses, left out of measurement (optional)
+  "vars": {
+    "AIRCHECK_DB": "supabase",
+    "SUPABASE_URL": "https://YOUR-PROJECT.supabase.co",
+    "AIRCHECK_HOST": "aircheck.example.com",
+    // Other hostnames that should 301 to AIRCHECK_HOST, comma-separated.
+    "AIRCHECK_REDIRECT_HOSTS": "",
+    "AIRCHECK_SITE_URL": "https://aircheck.example.com",
+    "AIRCHECK_MAIL_FROM": "Aircheck <hello@aircheck.example.com>",
+    "AIRCHECK_MAIL_REPLY_TO": ""
+  },
+  "routes": [
+    { "pattern": "aircheck.example.com", "custom_domain": true }
+  ]
+}

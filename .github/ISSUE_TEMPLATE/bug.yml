@@ -1,0 +1,31 @@
+name: Bug report
+description: Something in Aircheck or aircheck-mcp does not work as documented.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: aircheck-mcp version, or the commit of your checkout.
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Linux, Windows, Other]
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or the manifest involved
+      description: Remove tokens, emails and anything private first.
+      render: text

@@ -1,0 +1,33 @@
+{
+  "name": "aircheck",
+  "version": "0.2.0",
+  "private": true,
+  "description": "A local studio for agent-run social lanes: today's queue, every media asset, and on-demand preview runs.",
+  "scripts": {
+    "dev": "next dev -p 3326",
+    "build": "next build",
+    "start": "next start -p 3326",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --no-warnings --import ./tests/ts-resolve.mjs --test tests/*.test.mjs && node --test mcp/*.test.mjs",
+    "mcp": "node mcp/server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@opennextjs/cloudflare": "1.20.13",
+    "@phosphor-icons/web": "^2.1.1",
+    "next": "16.4.2",
+    "posthog-js": "^1.407.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.2",
+    "typescript": "^5",
+    "wrangler": "4.148.0"
+  }
+}
